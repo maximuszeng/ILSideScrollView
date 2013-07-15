@@ -151,6 +151,7 @@
 				6AEBE7F1169988A2008CC9AA /* Sources */,
 				6AEBE7F2169988A2008CC9AA /* Frameworks */,
 				6AEBE7F3169988A2008CC9AA /* Resources */,
+				38220D5D1794597E0049880F /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -205,6 +206,22 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		38220D5D1794597E0049880F /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "export CODESIGN_ALLOCATE=/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/usr/bin/codesign_allocate\nif [ \"${PLATFORM_NAME}\" == \"iphoneos\" ] || [ \"${PLATFORM_NAME}\" == \"ipados\" ]; then\n/Applications/Xcode.app/Contents/Developer/iphoneentitlements/gen_entitlements.py \"my.company.${PROJECT_NAME}\" \"${BUILT_PRODUCTS_DIR}/${WRAPPER_NAME}/${PROJECT_NAME}.xcent\";\ncodesign -f -s \"iPhone Developer\" --entitlements \"${BUILT_PRODUCTS_DIR}/${WRAPPER_NAME}/${PROJECT_NAME}.xcent\" \"${BUILT_PRODUCTS_DIR}/${WRAPPER_NAME}/\"\nfi";
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		6AEBE7F1169988A2008CC9AA /* Sources */ = {
@@ -294,6 +311,8 @@
 		6AEBE81A169988A2008CC9AA /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "ILSideScrollViewDemo/ILSideScrollViewDemo-Prefix.pch";
 				INFOPLIST_FILE = "ILSideScrollViewDemo/ILSideScrollViewDemo-Info.plist";
@@ -306,6 +325,8 @@
 		6AEBE81B169988A2008CC9AA /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "ILSideScrollViewDemo/ILSideScrollViewDemo-Prefix.pch";
 				INFOPLIST_FILE = "ILSideScrollViewDemo/ILSideScrollViewDemo-Info.plist";
